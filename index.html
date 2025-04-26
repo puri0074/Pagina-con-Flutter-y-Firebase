@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos AppKenya</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>Bienvenidos a nuestra tienda</h1>
+  </header>
+
+  <!-- Botón para agregar producto -->
+  <div class="add-product-btn">
+    <button id="addProductBtn">Agregar Producto</button>
+  </div>
+
+  <!-- Modal para agregar producto -->
+  <div id="addProductModal" class="modal">
+    <div class="modal-content">
+      <span id="closeAddModal" class="close-btn">&times;</span>
+      <h2>Agregar Nuevo Producto</h2>
+      <form id="addProductForm">
+        <label for="addName">Nombre:</label>
+        <input type="text" id="addName" required>
+
+        <label for="addDescription">Descripción:</label>
+        <textarea id="addDescription" required></textarea>
+
+        <label for="addPrice">Precio:</label>
+        <input type="number" id="addPrice" step="0.01" required>
+
+        <label for="addImage">URL de Imagen:</label>
+        <input type="text" id="addImage" required>
+
+        <button type="submit">Agregar Producto</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para editar producto -->
+  <div id="editProductModal" class="modal">
+    <div class="modal-content">
+      <span id="closeEditModal" class="close-btn">&times;</span>
+      <h2>Editar Producto</h2>
+      <form id="editProductForm">
+        <input type="hidden" id="editId">
+        <label for="editName">Nombre:</label>
+        <input type="text" id="editName" required>
+
+        <label for="editDescription">Descripción:</label>
+        <textarea id="editDescription" required></textarea>
+
+        <label for="editPrice">Precio:</label>
+        <input type="number" id="editPrice" step="0.01" required>
+
+        <label for="editImage">URL de Imagen:</label>
+        <input type="text" id="editImage" required>
+
+        <button type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenedor de productos -->
+  <main class="container">
+    <div id="products" class="products-grid">
+      <!-- Aquí se insertarán las tarjetas de producto -->
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>
+      &copy; 2025 Todos los derechos reservados |
+      <a href="#privacy">Política de privacidad</a>
+    </p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
