@@ -126,3 +126,32 @@ editForm.addEventListener("submit", async e => {
 
 // Inicial
 window.addEventListener("DOMContentLoaded", showProducts);
+
+// ——— EXPORTAR A CSV ———
+document.getElementById("exportCsvBtn").addEventListener("click", async () => {
+  const snap = await getDocs(collection(db, "coleccion"));
+  // Cabeceras CSV
+  const rows = [
+    ["ID","Nombre","Descripción","Precio","URL Imagen"]
+  ];
+  snap.forEach(docSnap => {
+    const d = docSnap.data();
+    rows.push([
+      docSnap.id,
+      `"${d.name.replace(/"/g,'""')}"`,
+      `"${d.description.replace(/"/g,'""')}"`,
+      d.price,
+      d.imagePath
+    ]);
+  });
+  // Generar texto CSV
+  const csvContent = rows.map(r => r.join(",")).join("\r\n");
+  // Descargar
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "productos.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+});
