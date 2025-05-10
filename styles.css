@@ -47,7 +47,7 @@ header h1 {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -58,6 +58,7 @@ header h1 {
 .modal-content {
   position: relative;
   background: #fff;
+  z-index: 1001;
   margin: 10% auto;
   padding: 20px;
   width: 300px;
@@ -180,7 +181,7 @@ header h1 {
   /* arriba a la derecha */
   display: flex;
   gap: 5px;
-  z-index: 20;
+  z-index: 10;
   /* por encima de la imagen */
 }
 

@@ -13,6 +13,7 @@ const firebaseConfig = {
   appId: "1:810287051159:web:7ae0af167863f72c4b14d2",
   measurementId: "G-KHZZVRMBTB"
 };
+
 const app = initializeApp(firebaseConfig);
 const db  = getFirestore(app);
 
@@ -154,4 +155,7 @@ document.getElementById("exportCsvBtn").addEventListener("click", async () => {
   a.download = "productos.csv";
   a.click();
   URL.revokeObjectURL(url);
+
+
+  
 });
